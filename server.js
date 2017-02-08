@@ -14,11 +14,11 @@ app.get('/', (req, res) => {
   const acceptLanguage = req.get('accept-language');
   const lang = acceptLanguage.match(/^(.+),/).slice(-1);
 
-  // get host ip address from user's request header
-  const host = req.get('host');
+  // get ip address from user's request header
+  const ip = req.ip;
 
   // respond with json object containing header information
-  res.json({ ipAddress: host,
+  res.json({ ipAddress: ip,
     Software: software[0],
     Language: lang[0],
   });
